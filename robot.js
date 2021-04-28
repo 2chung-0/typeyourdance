@@ -71,13 +71,14 @@ function draw() {
     rotateX(PI);
     textAlign(CENTER);
     textFont(fontB);
-    textSize(40);
+    textSize(height/20);
     fill(255-abs(x*70));
     text("Type your Dance.",0,-height/2+100);
     pop();
 
+    push();
+    translate(0,-height/5,0)
     Robot(noise(xoff)*100);
-
     push();
     rotateX(PI+radians(80));
     translate(0,-420,-250);
@@ -99,6 +100,11 @@ function draw() {
     }
     text(char_array,0,0);
     pop();
+
+    pop();
+
+
+
 
 
 }
@@ -149,14 +155,14 @@ function draw() {
             break;
         case ('c') :
             sleep(100);
-            x += radians(20);
+            x += radians(-30);
             osc.freq(700);
             osc.start();
             osc.stop(1,1);
             break;
         case ('d') :
             sleep(100);
-            x += radians(-21);
+            x += radians(+21);
             osc.freq(600);
             osc.start();
             osc.stop(1,1);
@@ -177,21 +183,21 @@ function draw() {
             break;
         case ('g') :
             sleep(100);
-            x += radians(-29);
+            x += radians(-25);
             osc.freq(300);
             osc.start();
             osc.stop(1,1);
             break;
         case ('h') :
             sleep(100);
-            x += radians(-29);
+            x += radians(-51);
             osc.freq(200);
             osc.start();
             osc.stop(1,1);
             break;
         case ('i') :
             sleep(100);
-            x += radians(-29);
+            x += radians(+71);
             osc.freq(100);
             osc.start();
             osc.stop(1,1);
@@ -336,6 +342,7 @@ function draw() {
     push();
     translate(-76,56+N,0);
     rotateZ(x);
+    rotateY(x);
     model(left_arm);
     pop();
     push();
@@ -350,7 +357,7 @@ function draw() {
     pop();
     push();
     translate(32,-74+N,0);
-    rotateY(x_2);
+    rotateZ(-x);
     model(right_leg);
     pop();
   }
