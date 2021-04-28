@@ -44,7 +44,14 @@ function setup(){
 function draw() {
     colorMode(HSB, 360, 100, 100, 100);
     
-    playBtn.show();
+    if (height < 575){
+        playBtn.hide();
+        inp.hide();
+    } else {
+        playBtn.show();
+        inp.show();
+    }
+
     playBtn.position(width/2-100, 220);
     playBtn.mousePressed(play);
 
@@ -69,20 +76,28 @@ function draw() {
     rotateX(PI);
     push();
     rotateX(PI);
+    if(height < 1000){
+        textSize(height/20);
+    } else {
+        textSize(50);
+    }
     textAlign(CENTER);
-    textFont(fontB);
-    textSize(height/20);
+    textFont(fontB);   
     fill(255-abs(x*70));
     text("Type your Dance.",0,-height/2+100);
     pop();
 
     push();
-    translate(0,-height/5,0)
+    if(height < 1000){
+        scale(height/1000);
+        translate(0,-height/3.2,0);
+    }
+
     Robot(noise(xoff)*100);
     push();
     rotateX(PI+radians(80));
     translate(0,-420,-250);
-    plane(2000,2000);
+    plane(2000,3000);
     pop();
 
     push();
@@ -90,6 +105,7 @@ function draw() {
     noStroke();
     textAlign(CENTER);
     textFont(fontB);
+    if(width){}
     translate(0,0,-4000);
     textSize(1700);
     
